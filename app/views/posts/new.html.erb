@@ -1,0 +1,16 @@
+<h3 class="new_book">新規投稿</h3>
+  <%= form_with model:@post do |f| %>
+
+<h4>タイトル</h4>
+  <%= f.text_field :title,class:"btn-block" %>
+
+<h4>説明文</h4>
+  <%= f.text_area :caption,class:"btn-block" %>
+
+  <%= f.attachment_field :X %>
+
+<h4>地域名選択</h4>
+  <%#= f.label :area_id %>
+  <%= f.collection_select :area_id, Area.all, :id, :name %>
+  <%= f.submit "Create Book",class: "btn btn-primary btn-block" %>
+  <% end %>
