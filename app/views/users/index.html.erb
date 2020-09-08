@@ -1,2 +1,38 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="row">
+ <div class="col-xs-1"></div>
+ <div class="col-xs-10">
+ 	<h3>ユーザー一覧</h3>
+	 <table class="table table-hover table-invrese">
+	    <thead>
+		   <tr>
+			 <th></th>
+			 <th>投稿者</th>
+			 <th>自己紹介</th>
+			 <th></th>
+		    </tr>
+		</thead>
+
+		<tbody>
+		 <% @users.each do |user| %>
+		    <tr>
+			  <td>
+			   <%= attachment_image_tag user, :profile_image, size: "50x50",
+			  format: 'jpeg', class: "img-circle", fallback: "no_image.jpg" %>
+			  </td>
+			  <td>
+			   <%= user.name %>
+			  </td>
+			  <td>
+			  	<%= user.introduction %>
+			  </td>
+			  <td>
+			   <%= link_to "詳細画面" ,user_path(user.id) %>
+			  </td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+
+  </div>
+
+ </div>

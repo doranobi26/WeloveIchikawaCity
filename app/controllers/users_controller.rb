@@ -9,6 +9,12 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def profile
+    @user = User.find(params[:id])
+  end
+
+
+
   def edit
     @user = User.find(params[:id])
     if current_user != @user

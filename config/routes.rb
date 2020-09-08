@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'homes#top'
-  get 'home/about'=>'homes#about'
+  #root 'users#top'
+  get 'home/about' => 'homes#about'
+  get 'user/profile' => 'users#profile'
 
   resources :posts do
   	resources :comment, only: [:create, :destroy]

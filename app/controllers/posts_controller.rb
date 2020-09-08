@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
+    @post.images.new
   end
 
   def create
@@ -8,9 +9,10 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:notice] =　'The post was successful'
-    redirect to post_path(@post.id)
+      redirect to post_path(@post.id)
     else
-    redirect_to request.referer
+     redirect_to request.referer
+    end
   end
 
 
@@ -26,7 +28,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     if current_user != @post.user
-    redirect_to posts_path
+       redirect_to posts_path
     end
   end
 
@@ -34,10 +36,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] =　'The post updated successfully'
-    redirect_to post_path(@post.id)
-  else
+      redirect_to post_path(@post.id)
+    else
     render "edit"
-  end
+    end
   end
 
   def destroy
@@ -48,6 +50,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :caption)
+    params.require(:post).permit(:title, :caption, images_images: [])
   end
 end

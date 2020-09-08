@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_073715) do
+ActiveRecord::Schema.define(version: 2020_09_08_072709) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2020_09_07_073715) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.string "image_id", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
