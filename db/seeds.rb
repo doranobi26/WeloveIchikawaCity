@@ -110,7 +110,7 @@ Area.create!(
 		},
 		{
 			name: "高谷",
-			postal_code: "272-00113"
+			postal_code: "272-0013"
 		},
 		{
 			name: "高谷新町",
@@ -146,7 +146,7 @@ Area.create!(
 		},
 		{
 			name: "下妙典",
-			postal_code: "272-0113"
+			postal_code: "2720113"
 		},
 		{
 			name: "新田",

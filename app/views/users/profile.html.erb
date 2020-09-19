@@ -1,48 +1,62 @@
-<div class="row">
- <div class="col-xs-3"></div>
- <div class="col-xs-6">
- 	<h1 class="profile-top">
- 		<%= @user.name %>さんのページ
- 	</h1>
+<div class="body-color">
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert"><%= notice %></div>
+   <% end %>
+ <div class="container">
+   <div class="row">
+     <div class="col-xs-2"></div>
+     <div class="col-xs-8">
+ 	    <h1 class="profile-top">
+ 		   <% if @user == current_user %>
+ 		   マイページ
+ 		   <% else %>
+ 		   <%= @user.name %>さんのプロフィール
+ 		   <% end %>
+ 	    </h1>
+     </div>
+     <div class="col-xs-2"></div>
+   </div>
+
+     <div class="row adjustment">
+       <div class="col-xs-1"></div>
+       <div class="col-xs-3 text-center">
+ 	       <%= attachment_image_tag @user, :profile_image, size:"210x210", format: "jpeg", class: "img-circle", fallback: "no_image.jpg" %>
+       </div>
+       <div class="col-xs-7">
+     <div class="adjustment">
+         <div class="panel panel-warning">
+	       <div class="panel-heading introduction-space">
+		     自己紹介
+	       </div>
+	       <div class="panel-body">
+		      <%= @user.introduction %>
+	     </div>
+       </div>
+     </div>
+       <div class="col-xs-1"></div>
+       </div>
+      </div>
+
+      <div class="row adjustment">
+       <div class="col-xs-1"></div>
+       <div class="col-xs-3">
+  	    <% if @user == current_user %>
+ 	      <%=link_to "プロフィール編集",edit_user_path(@user.id),class:"btn btn-info btn-block" %>
+ 	      <% end %>
+       </div>
+       <div class="col-xs-3">
+	       <% if @user == current_user %>
+	       <%=link_to "新規投稿",new_post_path,class:"btn btn-info  btn-block" %>
+	       <% end %>
+       </div>
+       <div class="col-xs-2">
+  	     <%=link_to "投稿一覧",user_path(@user.id),class:"btn btn-info  btn-block" %>
+        </div>
+        <div class="col-xs-2">
+         <%=link_to "いいね一覧",user_favorite_path(@user.id),class:"btn btn-info  btn-block" %>
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
  </div>
- <div class="col-xs-3"></div>
 </div>
 
-<div class="row">
- <div class="col-xs-4">
- 	<%= attachment.image_tag @user, :profile_image, size:"250X250", format: "jpeg", class: "img-circle", fallback: "no_image_jpg" %>
- 	<% if @user_id == current_user.id %>
- 	<%=link_to "プロフィール編集",edit_user_path(@user.id),class:"btn btn-default  btn-block" %>
- 	<% end %>
- </div>
- <div class="col-xs-8"></div>
-</div>
-
-<div class="row">
-  <div class="col-xs-3"></div>
-	<div class="col-xs-6">
-		<table class="table table-hover table-inverse">
-			<thead>
-				<tr>
-					<th>自己紹介</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><%= @user.introduction %></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-  <div class="col-xs-3"></div>
-</div>
-
-<% if @user_id == current_user.id %>
-<div class="row">
-	<div class="col-xs-3"></div>
-	<div class="col-xs-6">
-		<%=link_to "新規投稿",new_post_path(@post.id),class:"btn btn-default  btn-block" %>
-	</div>
-	<div class="col-xs-3"></div>
-</div>
-<% end %>

@@ -18,10 +18,101 @@
 @import "bootstrap";
 
 
+
+.body-color{
+	background-color :#EEEEEE;
+	height :460px;
+}
+
 .header-color{
 background-color: #C0C0C0;
 }
 
-.container{
-	padding-top: 30px;
+.header-test{
+	padding-top: 40px;
 }
+
+.icon{
+	font-size : 50px;
+}
+
+.footer-logo {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background-color: pink;
+}
+
+
+
+#footer-area{
+	color: #FFFFFF;
+}
+
+#application-name{
+	color: #FFFFFF;
+	font-size: 20px;
+	padding-top: 10px;
+}
+
+.header-space{
+	padding-left: 10px;
+	padding-top: 10px
+}
+
+.menu{
+	padding-right :15px;
+}
+
+.login-form{
+    background-color :#EEEEEE;
+	height :460px;
+}
+
+.forget-form{
+    background-color :#EEEEEE;
+	height :460px;
+}
+
+
+
+.new-form{
+	height :460px;
+}
+
+.entry-form{
+	padding-buttom :25px;
+}
+
+.btn-block{
+	border :1px solid #ccc;
+	border-radius : 4px;
+	box-shadow : 1px 1px rgba(0,0,0,0.075);
+}
+
+.s{
+	background-color : pink;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.alert{
+	text-align: center;
+}
+
+.adjustment{
+	padding-top: 10px;
+}
+
+.glyphicon-heart{
+	color: red;
+}
+
+footer{
+	padding-top: 10px;
+	background-color :#EEEEEE;
+}
+

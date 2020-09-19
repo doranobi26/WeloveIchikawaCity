@@ -1,0 +1,72 @@
+<div class="row post-form">
+  <% if @post.errors.any? %>
+      <div class="alert alert-warning">
+        <ul>
+          <div>There is an error.</div>
+            <% @post.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+            <% end %>
+        </ul>
+      </div>
+  <% end %>
+  <div class="col-xs-1"></div>
+  <div class=" col-xs-10">
+   <h3 class="new_post">投稿編集</h3>
+      <%= form_with model:@post, html:{name: 'form'} do |f| %>
+        <p class="form">
+          <%= f.label :タイトル %>
+          <%= f.text_field :title,class:"btn-block form-controll" %>
+        </p>
+        <p class="form">
+          <%= f.label :説明文 %>
+          <%= f.text_area :caption,class:"btn-block form-controll" %>
+          <!-- idを加えることでgetElementById("select_file")をとれる。 -->
+        </p>
+        <p class="form">
+          <h5>添付画像選択(3枚以内)</h5>
+           <%= f.attachment_field :images_images, multiple: true, id:"select_file" %>
+        </p>
+        <p class="form">
+            <%= f.label :地域名選択 %>
+            <%= f.collection_select :area_id, Area.all, :id, :name,class:"select-controll" %>
+        </p>
+        <p class="form">
+          <%= f.label :評価 %>
+          <span class="star"></span>
+          <%= f.hidden_field :score, id: :review_star %>
+        </p>
+        <p class="update_btn">
+          <%= f.submit "更新する",class: "btn btn-primary btn-block post-button",id:"submit_button" %>
+        </p>
+      <% end %>
+  </div>
+
+  <div class="col-xs-1"></div>
+</div>
+<script>
+  // idについてクリック等のイベントが生じたら、eいかを実行せよという命令（３４行目まで。）e＝イベント情報を示す。２５〜３４行目まで。EventListenerとは、イベントを拾う（今回でいうclick）
+  submit_button.addEventListener('click',(e)=>{
+    e.preventDefault();
+    // preventDefault()=クリックイベントを無効化。無効化しないと無条件にデータを送信してします。
+    var files = document.getElementById("select_file").files;
+    // <div><h1>は全てElement。なので、select_fileという名前がついたid(Element)を呼び出す
+    // lengthが選んだファイルの数。lengthで数え上げている。filesがhtml上の選択ボックスのtype
+    if(files.length>3){
+      alert('画像ファイルは3枚以内で投稿して下さい')
+    }
+    else{
+       document.form.submit()
+       // このformは5行目で任意につけたフォーム。このdocument.form.submit()で、preventDefault();で無効化したものを再度有効化している。
+    }
+  });
+
+  $('.star').raty({
+   size: 36, // 星のサイズ
+   score: "<%= @post.score %>",//数値の代入
+   starOff: "<%=asset_path('star-off.png')%>",// 星なし
+   starOn: "<%=asset_path('star-on.png')%>",//星有り
+   starHalf: "<%=asset_path('star-half.png')%>",// 星半分
+   scoreName: 'review[score]',
+   half: true,// 星の半分の入力を実行
+ });
+</script>

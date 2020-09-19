@@ -2,15 +2,21 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    #@users = User.page(params[:page]).reverse_order
+    @posts = @user.posts.page(params[:page]).reverse_order
   end
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).reverse_order
   end
 
   def profile
     @user = User.find(params[:id])
+  end
+
+  def favorite
+    @favorites = Favorite.page(params[:page]).where(user_id: params[:id]).reverse_order
+    #@favorites = Favorite.where(user_id :user.id)
   end
 
 
@@ -24,9 +30,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update
-      flash[:notice] = 'You have updated user successfully'
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      flash[:notice] = 'プロフィール情報の更新に成功しました'
+    redirect_to user_profile_path(@user.id)
+    #binding.pry
     else
     render "edit"
     end

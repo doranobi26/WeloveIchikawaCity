@@ -12,4 +12,15 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
+
+  def User.search(search, user_or_post)
+    if user_or_post == "1"
+      if search == ""
+        User.where(['name LIKE ?', "#{search}"])
+      else
+          User.where(['name LIKE ?', "%#{search}%"])
+      end
+    end
+  end
 end

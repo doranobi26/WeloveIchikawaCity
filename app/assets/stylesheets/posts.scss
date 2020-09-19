@@ -1,3 +1,47 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-form{
+	background-color :#EEEEEE;
+}
+
+.new_post{
+	height :75px;
+}
+
+.post-button{
+	padding-top :40px;
+	padding-buttom :60px;
+}
+
+
+
+
+.select-controll{
+	border :1px solid #ccc;
+	border-radius : 4px;
+}
+
+.form-controll{
+	border :1px solid #ccc;
+	border-radius : 4px;
+	box-shadow : 1px 1px rgba(0,0,0,0.075);
+}
+
+.post-index-body{
+	background-color :#EEEEEE;
+	height :650px;
+}
+
+.post-show-body{
+	background-color :#EEEEEE;
+}
+
+.glyphicon-trash{
+	color :red;
+}
+
+.comment-index{
+	text-align :center;
+}

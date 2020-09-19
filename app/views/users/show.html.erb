@@ -1,47 +1,55 @@
-<div class="row">
- <div class="col-xs-1"></div>
- <div class="col-xs-10">
- 	<h3>
- 		<%= user.name %>様の投稿一覧
- 	</h3>
-	 <table class="table table-hover table-invrese">
+<div class="body-color">
+  <div class="container">
+   <div class="row">
+ 	 <h3 class="text-center">
+ 		<%= @user.name %>様の投稿一覧
+ 	 </h3>
+   </div>
+
+   <div class="row">
+	 <div class="col-xs-3 text-center">
+		<%= attachment_image_tag @user, :profile_image, size: "200x200",
+	    format: 'jpeg', class: "img-circle", fallback: "no_image.jpg" %>
+	 </div>
+	 <div class="col-xs-8">
+	  <table class="table table-hover table-invrese">
 	    <thead>
 		   <tr>
-			 <th></th>
 			 <th>地域名</th>
 			 <th>タイトル</th>
-			 <th>紹介文</th>
 			 <th>投稿日時</th>
 			 <th></th>
 		    </tr>
 		</thead>
 
 		<tbody>
-		 <% @users.each do |user| %>
+		 <% @posts.each do |post| %>
 		    <tr>
 			  <td>
-			   <%= attachment_image_tag user, :profile_image, size: "50x50",
-			  format: 'jpeg', class: "img-circle", fallback: "no_image.jpg" %>
-			  </td>
-			  <td>
-			   <%= post.name %>
+			   <%= post.area.name %>
 			  </td>
 			  <td>
 			  	<%= post.title %>
 			  </td>
 			  <td>
-			  	<%= post.caption %>
+			  	<%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 			  </td>
 			  <td>
-			  	<%= post.created_at %>
-			  </td>
-			  <td>
-			   <%= link_to "詳細画面" ,post_path(post.id) %>
+			   <%= link_to "詳細" ,post_path(post.id) %>
 			  </td>
 			</tr>
-		<% end %>
+		  <% end %>
 		</tbody>
-	</table>
+	  </table>
+     </div>
+     <div class="col-xs-1"></div>
+   </div>
+
+   <div class="row">
+     <div class="text-cente">
+  	  <%= paginate @posts %>
+     </div>
   </div>
-  <div class="col-xs-1"></div>
  </div>
+</div>
+

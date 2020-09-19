@@ -1,3 +1,103 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home-top{
+  width: 100%;
+  height: 100%;
+  background-image: url(edogawa.jpg);
+  background-size: 100% 100%;
+  padding-bottom: 120px;
+}
+
+.top-body{
+	text-align: center;
+	padding: 25px;
+}
+
+#slide-show{
+  padding-top: 10px;
+}
+
+.about-body{
+  background-color :#EEEEEE;
+  width: 100%;
+  height: 100%;
+}
+
+.top-title{
+  font-weight: bold;
+  color: white;
+}
+
+
+.middle-body{
+  text-align: center;
+  padding-top :50px;
+  padding-buttom :50px;
+  color: white;
+}
+
+.btn-partial-line {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 3px;
+  border-left: solid 3px;
+  color: white;
+  transition: .4s;
+}
+
+.btn-partial-line:hover {
+  padding-left: 0.7em;
+  padding-right: 0.3em;
+  color: white;
+}
+
+.fa-caret-right{
+  color: white;
+}
+
+.buttons{
+  padding-top :30px;
+}
+
+.new-registration-button{
+  padding-right :120px;
+  font-size :20px;
+}
+
+.login-button{
+  padding-top :30px;
+  font-size :20px;
+}
+
+.about-ajustment{
+  padding-bottom :60px
+}
+
+.about-title{
+  padding-bottom :10px;
+}
+
+#slide-show{
+  height: 350px;
+}
+
+.image1 {
+  background-image: url(test1.jpg);
+}
+.image2 {
+  background-image: url(test2.jpg);
+}
+.image3 {
+  background-image: url(test3.jpg);
+}
+.image4 {
+  background-image: url(test4.jpg);
+}
+.image5 {
+  background-image: url(test5.jpg);
+}

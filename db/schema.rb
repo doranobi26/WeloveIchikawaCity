@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_072709) do
+ActiveRecord::Schema.define(version: 2020_09_10_064045) do
 
   create_table "areas", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "postal_code", default: "", null: false
+    t.string "name", null: false
+    t.string "postal_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_072709) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
-    t.text "comment", default: "", null: false
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_072709) do
 
   create_table "images", force: :cascade do |t|
     t.integer "post_id", null: false
-    t.string "image_id", default: "", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2020_09_08_072709) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "area_id", null: false
-    t.string "title", default: "", null: false
-    t.text "caption", default: "", null: false
+    t.string "title", null: false
+    t.text "caption", null: false
     t.float "score", default: 0.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,10 +58,10 @@ ActiveRecord::Schema.define(version: 2020_09_08_072709) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", default: "", null: false
-    t.string "profile_image_id", default: "", null: false
+    t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "introduction"
+    t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

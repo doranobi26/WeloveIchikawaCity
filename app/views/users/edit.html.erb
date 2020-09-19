@@ -1,16 +1,28 @@
-<div class="row">
-  <div class="col-xs-1"></div>
-  <div class=" col-xs-10">
-   <h3 class="profile-edit">プロフィール編集</h3>
-  　<%= form_with model:@user do |f| %>
-   <h4>ユーザー名</h4>
-    <%= f.text_field :name,class:"btn-block" %>
-   <h4>自己紹介</h4>
-    <%= f.text_area :introduction,class:"btn-block" %>
-    <h4>画像</h4>
-    <%=f.attachment_field :profile_image %>
-    <% end %>
-    </div>
-
+<div class="body-color">
+ <div class="container">
+   <div class="row">
     <div class="col-xs-1"></div>
+     <div class=" col-xs-10">
+      <h3 class="profile-edit">プロフィール編集</h3>
+       <%= form_with model:@user do |f| %>
+       <p class="form">
+         <%= f.label :ユーザー名 %>
+         <%= f.text_field :name,class:"btn-block" %>
+       </p>
+       <p class="form">
+         <%= f.label :自己紹介 %>
+         <%= f.text_area :introduction,class:"btn-block" %>
+       </p>
+       <p class="form">
+        <%= f.label :プロフィール画像 %>
+        <%=f.attachment_field :profile_image %>
+       </p>
+       <p class="update_btn">
+        <%= f.submit "更新",class:"btn btn-block btn-primary" %>
+        <% end %>
+       </p>
+     </div>
+    <div class="col-xs-1"></div>
+   </div>
+  </div>
 </div>

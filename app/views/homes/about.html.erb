@@ -1,1 +1,78 @@
-about.html.erb
+<div class="about-body">
+	<div class="container">
+		<div class="row">
+		  <h1 class="about-title text-center">市川市の魅力を投稿し共有しましょう。</h1>
+			<div class="col-xs-5" id="slide-show">
+				<!-- <div id="container"> -->
+                  <div id="theTarget" class="adjustment">
+                  <div class="image1"></div>
+                  <div class="image2"></div>
+                  <div class="image3"></div>
+                  <div class="image4"></div>
+                  <div class="image5"></div>
+                <!-- </div> -->
+            </div>
+			</div>
+			<div class="col-xs-7 about-ajustment">
+			  <div class="explanation">
+				   <div class="site-overview">
+				   	<strong>当サイトについて(サイト概要)</strong>
+				   </div>
+					<ul>
+						<li>市川市在住、若しくは、在住していたことがある方はあなたの住んでいる,
+						住んでいた地域の地域の魅力を投稿してみましょう。(投稿する方)
+					    </li>
+						<li>当サイトは市川市内の地域に住んでいる人、住んでいた人が地域の魅力を投稿しています。当サイトを参考にして市川市への定住の参考の一部としてみて下さい。(市川市への定住を検討されている方)
+						</li>
+						<li>当サイトは新規登録をして頂いた方はどなたでもご利用できる無料サービスです。早速新規登録をして当サービスを利用してみましょう。</li>
+					</ul>
+			   </div>
+			   <div class="explanation">
+				  <div class="note">
+				  	<strong>投稿に関するルール(利用規約)</strong>
+				  </div>
+					<ol>
+						<li>投稿内容は全て市川市内の７８地域に限定。</li>
+						<li>特定のスポットではなく、街全体の魅力を記載すること。</li>
+						<li>1投稿につき、写真は1枚以上3枚以下で掲載し、写真と絡めながら街の魅力を投稿すること。
+						</li>
+						<li>投稿の際は街のアピールポイントを記載すること。</li>
+						<li>写真投稿に関し、人の顔や個人情報が映らないようにすること。</li>
+					</ol>
+			  </div>
+				<div class="ichikawacity-offical-homepage">もっと市川市について知りたい方は
+				  <a href="https://www.city.ichikawa.lg.jp/">こちら</a>
+				(市川市役所公式ホームページ)をクリック
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	$(document).ready(function () {
+  $("#theTarget").skippr({
+    // スライドショー切り替え法 ("fade" or "slide")
+    transition : 'slide',
+    // 切り替え時間(ミリ秒)
+    speed : 1000,
+    // アニメーションの進行速度
+    easing : 'easeOutQuart',
+    // ナビゲーションの形("block" or "bubble")
+    navType : 'block',
+    // 子要素の種類("div" or "img")
+    childrenElementType : 'div',
+    // ナビゲーション矢印の表示(trueで表示)
+    arrows : true,
+    // スライドショーの自動再生(falseで自動再生なし)
+    autoPlay : true,
+    // 画像切り替え間隔(ミリ秒)　＊自動再生のとき
+    autoPlayDuration : 3000,
+    // キーボードの矢印キーによるスライド送りの設定(trueで有効)
+    keyboardOnAlways : true,
+    // 最初のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
+    hidePrevious : false
+  });
+});
+</script>
