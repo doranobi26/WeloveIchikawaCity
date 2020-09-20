@@ -12,12 +12,22 @@
  *
  *= require_tree .
  *= require_self
+ * scss できることメモ
+ * * 入れ子構造ができる
+ * * * `&` 変数が使える
+ * * 変数が使える
+ * * mixin 使える
+ * * 継承も使える
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$header-height: 50px;
 
+.main {
+	min-height: calc(100vh - #{$header-height});
+}
 
 .body-color{
 	background-color :#EEEEEE;
@@ -111,8 +121,10 @@ background-color: #C0C0C0;
 	color: red;
 }
 
-footer{
-	padding-top: 10px;
-	background-color :#EEEEEE;
+/* custom bootstrap */
+.navbar-toggle {
+  .icon-bar {
+	background: #fff;
+  }
 }
 
