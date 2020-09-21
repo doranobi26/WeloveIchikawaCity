@@ -31,10 +31,12 @@
 
 .post-index-body{
 	background-color :#EEEEEE;
+	min-height: calc(100vh - 50px);
 }
 
 .post-show-body{
 	background-color :#EEEEEE;
+	min-height: calc(100vh - 50px);
 }
 
 .glyphicon-trash{
