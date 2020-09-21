@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!, only: [:edit, :update]
+
   def show
     @user = User.find(params[:id])
     #@users = User.page(params[:page]).reverse_order
@@ -38,6 +40,13 @@ class UsersController < ApplicationController
     render "edit"
     end
   end
+
+  #def hide
+    #@user = User.find(current_user.id)
+    #@user.update!(is_deleted: true)
+    #reset_session
+    #redirect_to root_path
+  #end
 
   private
   def user_params

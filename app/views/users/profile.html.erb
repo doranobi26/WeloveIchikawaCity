@@ -4,26 +4,29 @@
    <% end %>
  <div class="container">
    <div class="row">
-     <div class="col-xs-2"></div>
-     <div class="col-xs-8">
- 	    <h1 class="profile-top">
+     <!-- <div class="col-xs-2"></div> -->
+     <!-- <div class="col-xs-8"> -->
+ 	    <h1 class="profile-top text-center">
  		   <% if @user == current_user %>
  		   マイページ
  		   <% else %>
  		   <%= @user.name %>さんのプロフィール
  		   <% end %>
  	    </h1>
-     </div>
-     <div class="col-xs-2"></div>
+     <!-- </div> -->
+     <!-- <div class="col-xs-2"></div> -->
    </div>
 
      <div class="row adjustment">
-       <div class="col-xs-1"></div>
-       <div class="col-xs-3 text-center">
+       <!-- <div class="col-xs-1"></div> -->
+       <!-- <div class="col-xs-3 text-center"> -->
+        <div class="profile_picture">
  	       <%= attachment_image_tag @user, :profile_image, size:"210x210", format: "jpeg", class: "img-circle", fallback: "no_image.jpg" %>
        </div>
-       <div class="col-xs-7">
-     <div class="adjustment">
+      <!-- </div> -->
+       <!-- </div> -->
+       <!-- <div class="col-xs-7"> -->
+        <div class="adjustment profile_introduction">
          <div class="panel panel-warning">
 	       <div class="panel-heading introduction-space">
 		     自己紹介
@@ -32,31 +35,44 @@
 		      <%= @user.introduction %>
 	     </div>
        </div>
-     </div>
-       <div class="col-xs-1"></div>
+     <!-- </div> -->
+     <!-- </div> -->
+       <!-- <div class="col-xs-1"></div> -->
        </div>
       </div>
 
-      <div class="row profile_buttons_space">
-       <div class="col-xs-1"></div>
-       <div class="col-xs-3">
-  	    <% if @user == current_user %>
- 	      <%=link_to "プロフィール編集",edit_user_path(@user.id),class:"btn btn-info btn-block" %>
- 	      <% end %>
-       </div>
-       <div class="col-xs-3">
-	       <% if @user == current_user %>
-	       <%=link_to "新規投稿",new_post_path,class:"btn btn-info  btn-block" %>
-	       <% end %>
-       </div>
-       <div class="col-xs-2">
-  	     <%=link_to "投稿一覧",user_path(@user.id),class:"btn btn-info  btn-block" %>
+      <div class="row profile_buttons_space text-center">
+       <!-- <div class="col-xs-1"></div> -->
+       <!-- <div class="col-xs-3"> -->
+      <!-- <div class="text-center"> -->
+  	   <% if @user == current_user %>
+        <div class="button_areas">
+ 	       <%=link_to "プロフィール編集",edit_user_path(@user.id),class:"btn btn-info btn-block" %>
         </div>
-        <div class="col-xs-2">
-         <%=link_to "いいね一覧",user_favorite_path(@user.id),class:"btn btn-info  btn-block" %>
-        </div>
-        <div class="col-xs-1"></div>
-      </div>
+ 	     <% end %>
+       <!-- </div> -->
+       <!-- <div class="col-xs-3"> -->
+	     <% if @user == current_user %>
+         <div class="button_areas">
+	        <%=link_to "新規投稿",new_post_path,class:"btn btn-info  btn-block" %>
+         </div>
+	     <% end %>
+       <!-- </div> -->
+       <!-- <div class="col-xs-2"> -->
+         <div class="button_areas">
+  	      <%=link_to "投稿一覧",user_path(@user.id),class:"btn btn-info  btn-block" %>
+         </div>
+        <!-- </div> -->
+        <!-- <div class="col-xs-2"> -->
+         <div class="button_areas">
+          <%=link_to "いいね一覧",user_favorite_path(@user.id),class:"btn btn-info  btn-block" %>
+         </div>
+       <!-- </div> -->
+        <!-- </div> -->
+        <!-- <div class="col-xs-1"></div> -->
+      <!-- </div> -->
+    </div>
+  </div>
  </div>
 </div>
 

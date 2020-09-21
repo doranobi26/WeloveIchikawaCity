@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
+
   def new
     @post = Post.new
     @post.images.new

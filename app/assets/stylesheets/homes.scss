@@ -7,7 +7,7 @@
   height: 100%;
   background-image: image-url("edogawa.jpg");
   background-size: 100% 100%;
-  padding-bottom: 120px;
+  padding-bottom: 150px;
 }
 
 .top-body{
@@ -100,4 +100,16 @@
 }
 .image5 {
   background-image: image-url("test5.jpg");
+}
+
+@media screen and (max-width:425px) {
+  .new-registration-button{
+  padding-right :20px;
+  font-size :20px;
+}
+
+　.login-button{
+  padding-top :30px;
+  font-size :10px;
+}
 }

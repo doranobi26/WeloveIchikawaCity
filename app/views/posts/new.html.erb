@@ -1,6 +1,6 @@
 <div class="post-form">
   <% if @post.errors.any? %>
-      <div class="alert alert-warning">
+      <div class="alert alert-danger">
         <ul>
         <div>There is an error.</div>
          <% @post.errors.full_messages.each do |message| %>

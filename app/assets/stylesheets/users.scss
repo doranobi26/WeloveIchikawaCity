@@ -22,6 +22,31 @@
 	text-align :center;
 }
 
+.profile_introduction{
+	display: inline-block
+}
+
+.profile_introduction{
+	display: inline-block
+}
+
+
+
+.button_areas{
+	display: inline-block;
+	width: 150px;
+	margin-right: 40px;
+	margin-left: 40px;
+}
+
+@media screen and (max-width:425px) {
+  .button_areas{
+  padding-bottom: 20px;
+  margin-right: 0px;
+  display: block;
+  margin: 0 auto;
+}
+}
 
 
 
