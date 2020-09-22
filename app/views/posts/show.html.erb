@@ -14,7 +14,8 @@
 				<span class="star"></span>
 			  </div>
 			  <div class="edit-destroy-button adjustment">
-				  <% if @user == current_user %>
+				  <%# if @user == current_user %>
+				  <% if current_user == @user || current_user.admin? %>
 				   <span class="edit-button adjustment">
 				   <%= link_to "編集", edit_post_path(@post.id), class:"btn btn-success btn-sm" %>
 		    		</span>
@@ -60,7 +61,8 @@
 					  <td>
 						  <%= comment.comment %>
 					   </td>
-					      <% if comment.user == current_user %>
+					      <%# if comment.user == current_user %>
+					      <% if current_user == comment.user || current_user.admin? %>
 					   <td>
 					      <%=link_to "" , post_comment_path(comment.post, comment),method: :delete,"data-confirm"=>"本当に削除しますか?", class:"glyphicon glyphicon-trash" %>
 					    </td>

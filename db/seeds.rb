@@ -318,3 +318,13 @@ Area.create!(
 		}
 
 	])
+
+User.create!(
+	[
+		{
+			name: ENV['ADMIN_NAME'],
+			email: ENV['ADMIN_E_MAIL_NUMBER'],
+			password: ENV['ADMIN_PASSWORD'],
+			admin: true
+		}
+	])

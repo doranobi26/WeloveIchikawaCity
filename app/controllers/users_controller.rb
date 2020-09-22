@@ -34,24 +34,22 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = 'プロフィール情報の更新に成功しました'
-    redirect_to user_profile_path(@user.id)
+      redirect_to user_profile_path(@user.id)
     #binding.pry
     else
-    render "edit"
+      render "edit"
     end
   end
 
-  #def hide
-    #@user = User.find(current_user.id)
-    #@user.update!(is_deleted: true)
-    #reset_session
-    #redirect_to root_path
-  #end
+  def hide
+    @user = User.find(current_user.id)
+    @user.update!(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
 
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
-
-
 end

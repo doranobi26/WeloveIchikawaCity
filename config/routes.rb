@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'user/profile/:id' => 'users#profile',as:"user_profile"
   get 'user/favorite/:id' => 'users#favorite',as:"user_favorite"
   get 'search' => 'searchs#search'
+  put "/users/:id/hide" => "users#hide", as: 'users_hide'
 
   resources :posts do
   	resources :comments, only: [:create, :destroy]

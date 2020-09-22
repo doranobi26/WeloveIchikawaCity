@@ -4,7 +4,7 @@
  	    <div class="text-center">
  	        <h3><i class="far fa-newspaper icon"></i></h3>
         </div>
-        </div>
+    </div>
     <div class="row text-right">
   		    <%= form_tag(posts_path, :method => 'get') do %>
             <%= select_tag(:sort, options_for_select([["評価の低い順","low_star"],["評価の高い順","high_star"],["いいねの少ない順","low_ranking"],["いいねの多い順","high_ranking"],["投稿の古い順","old"],["投稿の新しい順","new"]]))%>
