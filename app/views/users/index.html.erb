@@ -5,36 +5,40 @@
  	  <h3><i class="fas fa-user-circle icon"></i></h3>
     </div>
   </div>
-  <div class="row text-center">
+  <div class="row">
 	 <table class="table table-hover table-invrese">
 	    <thead>
 		   <tr>
-			 <!-- <th>ユーザー名</th> -->
-			 <!-- <th>自己紹介</th> -->
+			 <th>ユーザー名</th>
+			 <th>自己紹介
 			 <th></th>
-			  <th></th>
+			 <th></th>
+			 <!-- <th></th> -->
 		    </tr>
 		</thead>
 
 		<tbody>
+
 		 <% @users.each do |user| %>
-		    <tr>
-			  <td>
-			   <%= attachment_image_tag user, :profile_image, size: "50x50",
-			   format: 'jpeg', fallback: "no_image.jpg" %><br>
-			   <%= user.name %>
-			  </td>
-			  <!-- </td> -->
-			  	<%#= user.introduction %>
-			  <!-- </td> -->
-			  <td>
-			  	<%=link_to "投稿一覧画面" ,user_path(user.id),method: :get %>
-			  </td>
-			  <td>
-			   <%= link_to "プロフィール画面" ,user_profile_path(user.id) %>
-			  </td>
-			</tr>
-		 <% end %>
+		 	<% if user.is_deleted == false %>
+		    	<tr>
+			   		<td>
+			   			<%= attachment_image_tag user, :profile_image, size: "50x50",
+			   			format: 'jpeg', fallback: "no_image.jpg" %><br>
+			   			<%= user.name %>
+			  		</td>
+			  		<td>
+			  			<%= user.introduction %>
+			  		</td>
+			  		<td>
+			  			<%=link_to "投稿一覧画面" ,user_path(user.id),method: :get %>
+			  		</td>
+			  		<td>
+			   			<%= link_to "プロフィール画面" ,user_profile_path(user.id) %>
+			  		</td>
+				</tr>
+			<% end %>
+		  <% end %>
 		</tbody>
 	 </table>
    </div>

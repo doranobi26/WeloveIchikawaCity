@@ -4,6 +4,8 @@
 
 .post-form{
 	background-color :#EEEEEE;
+	min-height: calc(100vh - 50px);
+	padding-buttom: 30px;
 }
 
 
@@ -37,6 +39,7 @@
 .post-show-body{
 	background-color :#EEEEEE;
 	min-height: calc(100vh - 50px);
+	padding-top: 10px;
 }
 
 .glyphicon-trash{

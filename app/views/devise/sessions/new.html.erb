@@ -5,6 +5,9 @@
 
    <h2 class="adjustment">ログイン</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%#= render "devise/shared/error_messages", resource: resource %>
+
+
     <div class="entry-form">
      <%= f.label :ユーザー名 %><br />
      <%= f.text_field :name, autofocus: true, autocomplete: "name",class:"btn-block" %>

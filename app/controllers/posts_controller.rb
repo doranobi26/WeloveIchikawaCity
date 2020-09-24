@@ -48,7 +48,6 @@ class PostsController < ApplicationController
     @images = @post.images
     @comment = Comment.new
     results = Geocoder.search(@area.postal_code)
-    #byebug
     if results.first
       @cordinates = results.first.coordinates
     else

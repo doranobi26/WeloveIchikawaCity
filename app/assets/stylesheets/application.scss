@@ -25,12 +25,19 @@
 
 $header-height: 50px;
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 .main {
 	min-height: calc(100vh - #{$header-height});
 }
 
 .body-color{
 	background-color :#EEEEEE;
+	min-height: calc(100vh - 50px);
 }
 
 .header-color{
@@ -45,10 +52,7 @@ background-color: #C0C0C0;
 	font-size : 50px;
 }
 
-.fixed-bottom {
-	padding-top: 20px;
-    background-color: #EEEEEE;
-}
+
 
 .footer-logo {
   width: 100%;
@@ -81,18 +85,19 @@ background-color: #C0C0C0;
 
 .login-form{
     background-color :#EEEEEE;
-	height :460px;
+	min-height: calc(100vh - 50px);
 }
 
 .forget-form{
     background-color :#EEEEEE;
-	height :460px;
+	min-height: calc(100vh - 50px);
 }
 
 
 
 .new-form{
-	height :460px;
+	min-height: calc(100vh - 50px);
+	padding-bottom: 30px;
 }
 
 .entry-form{
@@ -110,10 +115,6 @@ background-color: #C0C0C0;
 }
 
 .text-center{
-	text-align: center;
-}
-
-.alert{
 	text-align: center;
 }
 

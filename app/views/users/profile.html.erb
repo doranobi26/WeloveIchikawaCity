@@ -38,9 +38,9 @@
      </div>
 
      <% if user_signed_in? %>
-      <%= current_user.admin? %>
-      <%= @user.id %>
-      <%= current_user.id %>
+      <%#= current_user.admin? %>
+      <%#= @user.id %>
+      <%#= current_user.id %>
         <% if current_user.admin == false && @user.id == current_user.id %>
            <%= link_to "退会", users_hide_path(@user.id), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
         <% elsif current_user.admin? && @user.id != current_user.id %>
@@ -50,6 +50,7 @@
 
      <div class="row profile_buttons_space text-center">
   	    <%# if @user == current_user %>
+      <% if user_signed_in? %>
         <% if current_user == @user || current_user.admin? %>
           <div class="button_areas">
  	           <%= link_to "プロフィール編集",edit_user_path(@user.id),class:"btn btn-info btn-block" %>
@@ -60,6 +61,7 @@
            <div class="button_areas">
 	           <%= link_to "新規投稿",new_post_path,class:"btn btn-info  btn-block" %>
           </div>
+        <% end %>
 	     <% end %>
 
        <%# if @user == current_user %>
