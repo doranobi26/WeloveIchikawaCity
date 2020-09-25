@@ -53,6 +53,14 @@
 	margin-left: 40px;
 }
 
+.withdrawal{
+	padding-top: 0px;
+}
+.withdrawal_button{
+	width: 150px;
+}
+
+
 @media screen and (max-width:425px) {
   .button_areas{
   padding-bottom: 20px;
@@ -68,6 +76,10 @@
 
 .profile_picture{
 	margin: 0 auto;
+}
+
+.withdrawal{
+	padding-top: 35px;
 }
 }
 

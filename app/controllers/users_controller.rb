@@ -35,8 +35,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = 'プロフィール情報の更新に成功しました'
-      redirect_to user_profile_path(@user.id)
+      #flash[:notice] = 'プロフィール情報の更新に成功しました'
+      redirect_to user_profile_path(@user.id),notice: "プロフィール情報の更新に成功しました"
     #binding.pry
     else
       render "edit"

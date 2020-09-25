@@ -1,17 +1,17 @@
 <div class="post-index-body">
-  <div class="container">
-    <div class="row">
- 	    <div class="text-center">
- 	        <h3><i class="far fa-newspaper icon"></i></h3>
-        </div>
-    </div>
-    <div class="row text-right">
+  	<div class="container">
+    	<div class="row">
+ 	    	<div class="text-center">
+ 	        	<h3><i class="far fa-newspaper icon"></i></h3>
+        	</div>
+    	</div>
+    	<div class="row text-right">
   		    <%= form_tag(posts_path, :method => 'get') do %>
-            <%= select_tag(:sort, options_for_select([["評価の低い順","low_star"],["評価の高い順","high_star"],["いいねの少ない順","low_ranking"],["いいねの多い順","high_ranking"],["投稿の古い順","old"],["投稿の新しい順","new"]]))%>
-            <%= submit_tag '検索' %>
+            	<%= select_tag(:sort, options_for_select([["投稿の新しい順"],["投稿の古い順","old"],["評価の高い順","high_star"],["評価の低い順","low_star"],["いいねの多い順","high_ranking"],["いいねの少ない順","low_ranking"]]))%>
+            	<%= submit_tag '検索' %>
             <% end %>
-    </div>
-    <div class="row">
+    	</div>
+    	<div class="row">
 	        <table class="table table-hover table-invrese">
 	            <thead>
 		            <tr>
@@ -27,45 +27,45 @@
 
 		        <tbody>
 		          <% @posts.each do |post| %>
-		          <% if post.user.is_deleted == false %>
-		            <tr>
-			            <td>
-			               <%=link_to user_profile_path(post.user.id) do %>
-			               		<%= attachment_image_tag post.user, :profile_image, size: "50x50",
-			                    format: 'jpeg', fallback: "no_image.jpg" %><br>
-			                	<%= post.user.name %>
-			                <% end %>
-			            </td>
-			            <td>
-			                <%= post.area.name %>
-			            </td>
-			            <td>
-			  	            <%= post.title %>
-			            </td>
-			            <td>
-			  	             <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-			            </td>
-			            <td>
-			  	            <%= post.favorites.count %>
-			            </td>
-			            <td>
-			  	            <%= post.comments.count %>
-			            </td>
-			            <td>
-			                <%= link_to "詳細画面" ,post_path(post.id) %>
-			            </td>
-			        </tr>
+		          	<% if post.user.is_deleted == false %>
+		            	<tr>
+			            	<td>
+			               		<%=link_to user_profile_path(post.user.id) do %>
+			               			<%= attachment_image_tag post.user, :profile_image, size: "50x50",
+			                    	format: 'jpeg', fallback: "no_image.jpg" %><br>
+			                		<%= post.user.name %>
+			                	<% end %>
+			            	</td>
+			            	<td>
+			                	<%= post.area.name %>
+			            	</td>
+			            	<td>
+			  	            	<%= post.title %>
+			            	</td>
+			            	<td>
+			  	             	<%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+			            	</td>
+			            	<td>
+			  	            	<%= post.favorites.count %>
+			            	</td>
+			            	<td>
+			  	            	<%= post.comments.count %>
+			            	</td>
+			            	<td>
+			                	<%= link_to "詳細画面" ,post_path(post.id) %>
+			            	</td>
+			        	</tr>
+		          	<% end %>
 		          <% end %>
-		          <% end %>
-		         </tbody>
+		        </tbody>
 	        </table>
-     </div>
-     <div class="row">
- 	     <div class="text-center">
- 		   <%= paginate @posts %>
- 	     </div>
-     </div>
-  </div>
+     	</div>
+     	<div class="row">
+ 	     	<div class="text-center">
+ 		   		<%= paginate @posts %>
+ 	     	</div>
+     	</div>
+  	</div>
 </div>
 
 <%#= form_tag(posts_path, :method => 'get') do %>

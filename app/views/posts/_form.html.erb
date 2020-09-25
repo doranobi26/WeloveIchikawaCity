@@ -1,0 +1,29 @@
+<!-- 新規投稿/投稿編集フォーム -->
+<%= form_with model:@post, html:{name: 'form'} do |f| %>
+  <p class="form">
+    <%= f.label :タイトル（20字以内）  %>
+    <%= f.text_field :title,class:"btn-block form-controll" %>
+  </p>
+  <p class="form">
+    <%= f.label :説明文（300字以内） %>
+    <%= f.text_area :caption,class:"btn-block form-controll" %>
+    <!-- idを加えることでgetElementById("select_file")をとれる。 -->
+  </p>
+  <p class="form">
+    <%= f.label :添付画像選択（1枚以上3枚以内） %>
+    <%= f.attachment_field :images_images, multiple: true, id:"select_file" %>
+  </p>
+  <p class="form">
+    <%= f.label :地域名選択 %>
+    <%= f.collection_select :area_id, Area.all, :id, :name,class:"select-controll" %>
+  </p>
+  <p class="form">
+    <%= f.label :評価 %>
+    <span class="star"></span>
+    <%= f.hidden_field :score, id: :review_star %>
+  </p>
+  <div class="submit-button">
+    <%= f.submit "投稿する",class: "btn btn-primary btn-block post-button",id:"submit_button" %>
+</div>
+<% end %>
+<!-- ここまで -->
