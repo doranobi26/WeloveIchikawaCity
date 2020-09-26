@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.page(params[:page]).reverse_order
+    #@users = User.page(params[:page]).reverse_order
+    @users = User.page(params[:page]).where(is_deleted: false).where(admin: false).reverse_order
+
   end
 
   def profile
@@ -32,7 +34,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_profile_path(@user.id),notice: "プロフィール情報の更新に成功しました"
-    #binding.pry
     else
       render "edit"
     end

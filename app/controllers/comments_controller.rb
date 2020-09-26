@@ -2,14 +2,13 @@ class CommentsController < ApplicationController
 
   before_action :authenticate_user!
 
-  
+
   def create
   	post = Post.find(params[:post_id])
   	comment = post.comments.new(comment_params)
   	comment.user_id = current_user.id
   	comment.save
   	redirect_to request.referer
-    #binding.pry
   end
 
   def destroy

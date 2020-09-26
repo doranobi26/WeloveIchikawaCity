@@ -4,26 +4,26 @@
   <% end %>
   <div class="container">
     <div class="row">
- 	    <h1 class="profile-top text-center">
- 		     <% if @user == current_user %>
- 		     マイページ
- 		     <% else %>
- 		       <%= @user.name %>さんのプロフィール
- 		     <% end %>
- 	    </h1>
+      <h1 class="profile-top text-center">
+         <% if @user == current_user %>
+         マイページ
+         <% else %>
+           <%= @user.name %>さんのプロフィール
+         <% end %>
+      </h1>
     </div>
     <div class="row adjustment text-center">
       <div class="profile_picture">
- 	      <%= attachment_image_tag @user, :profile_image, size:"210x210", format: "jpeg", class: "img-circle", fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @user, :profile_image, size:"210x210", format: "jpeg", class: "img-circle", fallback: "no_image.jpg" %>
       </div>
       <div class="adjustment profile_introduction">
         <div class="panel panel-warning">
-	         <div class="panel-heading introduction-space">
-		       自己紹介
-	         </div>
-	         <div class="panel-body">
-		          <%= @user.introduction %>
-	         </div>
+          <div class="panel-heading introduction-space">
+          自己紹介
+          </div>
+          <div class="panel-body">
+            <%= @user.introduction %>
+          </div>
         </div>
       </div>
     </div>
@@ -32,27 +32,25 @@
         <% if current_user.admin == false && @user.id == current_user.id %>
           <%= link_to "退会", users_hide_path(@user.id), method: :put, "data-confirm" => "退会すると投稿を含む全てのデータが削除されます。本当に退会しますか？", class: "btn btn-danger withdrawal_button" %>
         <% elsif current_user.admin? && @user.id != current_user.id %>
-           <%= link_to "強制退会", users_hide_path(@user.id), method: :put, "data-confirm" => "本当に退会させますか？", class: "btn btn-danger withdrawal_button" %>
+          <%= link_to "強制退会", users_hide_path(@user.id), method: :put, "data-confirm" => "本当に退会させますか？", class: "btn btn-danger withdrawal_button" %>
         <% end %>
      <% end %>
     </div>
     <div class="row profile_buttons_space text-center">
-  	    <%# if @user == current_user %>
       <% if user_signed_in? %>
         <% if current_user == @user || current_user.admin? %>
-        <div class="button_areas">
- 	        <%= link_to "プロフィール編集",edit_user_path(@user.id),class:"btn btn-info btn-block" %>
-        </div>
- 	      <% end %>
-	      <% if @user == current_user %>
-        <%# if current_user == @user || current_user.admin? %>
-        <div class="button_areas">
-	        <%= link_to "新規投稿",new_post_path,class:"btn btn-info  btn-block" %>
+          <div class="button_areas">
+            <%= link_to "プロフィール編集",edit_user_path(@user.id),class:"btn btn-info btn-block" %>
           </div>
         <% end %>
-	    <% end %>
+        <% if @user == current_user %>
+          <div class="button_areas">
+            <%= link_to "新規投稿",new_post_path,class:"btn btn-info  btn-block" %>
+          </div>
+        <% end %>
+      <% end %>
       <div class="button_areas">
-  	    <%= link_to "投稿一覧",user_path(@user.id),class:"btn btn-info  btn-block" %>
+        <%= link_to "投稿一覧",user_path(@user.id),class:"btn btn-info  btn-block" %>
       </div>
       <div class="button_areas">
         <%= link_to "いいね一覧",user_favorite_path(@user.id),class:"btn btn-info  btn-block" %>

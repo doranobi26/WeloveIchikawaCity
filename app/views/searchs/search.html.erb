@@ -1,83 +1,85 @@
 <div class="body-color">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-1"></div>
-			<div class="col-xs-10">
-				<% if @user_or_post == "2" %>
-				<h3>投稿検索(検索ワード "<%= @search %>")</h3>
-					<table class="table table-hover table-invrese">
-						<thead>
-							<tr>
-								<th>投稿者</th>
-								<th>地域名</th>
-								<th>タイトル</th>
-								<th>投稿日時</th>
-							</tr>
-						</thead>
-						<tbody>
-						<% @posts.each do |post| %>
-							<tr>
-								<td><%=link_to user_path(post.user.id) do %>
-										<%=attachment_image_tag post.user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.jpg" %><br>
-										<%= post.user.name %>
-									<% end %>
-								</td>
-								<td>
-									<%= post.area.name %>
-								</td>
-								<td>
-									<%= post.title %>
-								</td>
-								<td>
-			  	            		<%= post.created_at.strftime("%Y-%m-%d %H:%M:%S")  %>
-			             		</td>
-							</tr>
-						<% end %>
-						</tbody>
-					</table>
-				<% elsif @user_or_post == "1" %>
-				<h3>ユーザー検索(検索ワード "<%=@search %>")</h3>
-					<table class="table table-hover table-invrese">
-						<thead>
-							<tr>
-								<th></th>
-								<th>ユーザー名</th>
-								<th>自己紹介</th>
-								<th></th>
-							</tr>
-						</thead>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-10">
+        <% if @user_or_post == "2" %>
+          <h3>投稿検索(検索ワード "<%= @search %>")</h3>
+            <table class="table table-hover table-invrese">
+              <thead>
+                <tr>
+                  <th>投稿者</th>
+                  <th>地域名</th>
+                  <th>タイトル</th>
+                  <th>投稿日時</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @posts.each do |post| %>
+                  <tr>
+                    <td>
+                        <%=link_to user_path(post.user.id) do %>
+                          <%=attachment_image_tag post.user, :profile_image, size: "50x50", format: 'jpeg', fallback: "no_image.jpg" %><br>
+                          <%= post.user.name %>
+                        <% end %>
+                    </td>
+                    <td>
+                      <%= post.area.name %>
+                    </td>
+                    <td>
+                      <%= post.title %>
+                    </td>
+                    <td>
+                      <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S")  %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+        <% elsif @user_or_post == "1" %>
+          <h3>ユーザー検索(検索ワード "<%=@search %>")</h3>
+            <table class="table table-hover table-invrese">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>ユーザー名</th>
+                  <th>自己紹介</th>
+                  <th></th>
+                </tr>
+              </thead>
 
-						<tbody>
-							<% @users.each do |user| %>
-								<tr>
-									<td>
-										<%= attachment_image_tag user, :profile_image, size: "50x50",
-										format: 'jpeg', fallback: "no_image.jpg" %>
-									</td>
-									<td>
-										<%= user.name %>
-									</td>
-									<td>
-										<%= user.introduction %>
-									</td>
-									<td>
-										<%=link_to "プロフィール画面", user_profile_path(user.id) %>
-									</td>
-								</tr>
-							<% end %>
-						</tbody>
-					</table>
-				<% else %>
-				<h3>検索結果はヒットしませんでした</h3>
-				<% end %>
-			</div>
-			<div class="col-xs-1">
-				<% if @user_or_post == "2" %>
-					<%= paginate @posts %>
-				<% else @user_or_post == "1" %>
-					<%= paginate @users %>
-				<% end %>
-			</div>
-		</div>
-  	</div>
+              <tbody>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td>
+                      <%= attachment_image_tag user, :profile_image, size: "50x50",
+                      format: 'jpeg', fallback: "no_image.jpg" %>
+                    </td>
+                    <td>
+                      <%= user.name %>
+                    </td>
+                    <td>
+                      <%= user.introduction %>
+                    </td>
+                    <td>
+                      <%=link_to "プロフィール画面", user_profile_path(user.id) %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+        <% else %>
+          <h3>検索結果はヒットしませんでした</h3>
+        <% end %>
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+    <div class="row text-center">
+        <% if @user_or_post == "2" %>
+          <%= paginate @posts %>
+        <% else @user_or_post == "1" %>
+          <%= paginate @users %>
+        <% end %>
+    </div>
+  </div>
 </div>

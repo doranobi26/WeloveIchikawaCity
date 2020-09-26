@@ -24,7 +24,8 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.page(params[:page]).reverse_order
+    user=User.where(is_deleted: false)
+    @posts =  Post.page(params[:page]).where(user_id: user.ids).reverse_order
     if params[:sort] == "low_star"
       @posts = Post.page(params[:page]).order(score: :asc)
     elsif params[:sort] == "high_star"
@@ -58,7 +59,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     if current_user != @post.user
-       redirect_to request.referer
+      redirect_to request.referer
     end
   end
 
@@ -66,7 +67,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.score = params[:review][:score]
     if @post.update(post_params)
-       redirect_to post_path(@post.id),notice: "投稿の更新に成功しました"
+      redirect_to post_path(@post.id),notice: "投稿の更新に成功しました"
     else
     render "edit"
     end

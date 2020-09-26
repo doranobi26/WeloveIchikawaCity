@@ -1,29 +1,24 @@
 <div class="home-top">
- <%# if flash[:notice] %>
-   <!-- <div class="alert alert-success" role="alert"><%= notice %></div> -->
-  <%# end %>
-	<div class="container">
-	   <div class="row top-body">
-			<div class="top-title">
-				<h1>ようこそ、WeLoveIchikawaへ<h1>
-				<h5>市川市に住んでいる方！、住んでいた方！<br>地域の魅力を口コミで発信してみましょう。<br>市川市への移住を検討されている方はぜひご覧ください。</h5>
-			</div>
-	   </div>
-	</div>
-    <div class="container">
-	   <div class="row middle-body">
-			<div clas="buttons">
-		    	<span class="new-registration-button">
-					<%= link_to new_user_registration_path, class: "btn-partial-line" do %>
-              			<i class="fa fa-caret-right"></i> 新規登録
-            		<% end %>
-           		</span>
-            	<span class="login-button">
-            		<%= link_to new_user_session_path, class: "btn-partial-line" do %>
-              			<i class="fa fa-caret-right"></i> ログイン
-            		<% end %>
-            	</span>
-            </div>
-	  </div>
-	</div>
+  <div class="container">
+    <div class="row top-body">
+      <div class="top-title">
+        <h1>ようこそ、WeLoveIchikawaへ<h1>
+        <h5>市川市に住んでいる方！、住んでいた方！<br>地域の魅力を口コミで発信してみましょう。<br>市川市への移住を検討されている方はぜひご覧ください。</h5>
+      </div>
+    </div>
+    <div class="row middle-body">
+      <div clas="buttons">
+        <span class="new-registration-button">
+          <%= link_to new_user_registration_path, class: "btn-partial-line" do %>
+            <i class="fa fa-caret-right"></i> 新規登録
+          <% end %>
+        </span>
+        <span class="login-button">
+          <%= link_to new_user_session_path, class: "btn-partial-line" do %>
+            <i class="fa fa-caret-right"></i> ログイン
+          <% end %>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>

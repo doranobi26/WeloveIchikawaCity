@@ -1,12 +1,12 @@
 <div class="post-form">
- <div class="container">
-   <div class="row">
-    <div class="col-xs-1"></div>
-     <div class=" col-xs-10">
-       <h3 class="new_post">新規投稿</h3>
-         <% if @post.errors.any? %>
-           <%= render 'posts/alert', post: @post %>
-         <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class=" col-xs-10">
+        <h3 class="new_post">新規投稿</h3>
+          <% if @post.errors.any? %>
+            <%= render 'posts/alert', post: @post %>
+          <% end %>
          <%= render 'posts/form', post: @post %>
      </div>
      <div class="col-xs-1"></div>

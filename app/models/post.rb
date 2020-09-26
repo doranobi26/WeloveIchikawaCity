@@ -28,27 +28,13 @@ class Post < ApplicationRecord
     	if search == ""
     	   Post.where(['title LIKE ?',"#{search}" ])
     	else
-           Post.where(['title LIKE ?', "%#{search}%"])
+          Post.where(['title LIKE ?', "%#{search}%"])
         end
+      end
     end
-    end
-
-    #def self.ranking(params)
-    	#if params[:sort] == "low_ranking"
-    	#end
-    #end
 
     private
-
     def presence_images
     	errors.add(:posts, "can't be blank") if images.size == 0
     end
-
-    #def geocode
-      #uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=ENV["GOOGLEMAP_API_KEY"]")
-      #res = HTTP.get(uri).to_s
-      #response = JSON.parse(res)
-      #self.latitude = response["results"][0]["geometry"]["location"]["lat"]
-      #self.longitude = response["results"][0]["geometry"]["location"]["lng"]
-    #end
 end
