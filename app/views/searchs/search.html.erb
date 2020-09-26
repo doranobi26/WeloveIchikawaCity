@@ -71,7 +71,13 @@
 				<h3>検索結果はヒットしませんでした</h3>
 				<% end %>
 			</div>
-			<div class="col-xs-1"></div>
+			<div class="col-xs-1">
+				<% if @user_or_post == "2" %>
+					<%= paginate @posts %>
+				<% else @user_or_post == "1" %>
+					<%= paginate @users %>
+				<% end %>
+			</div>
 		</div>
   	</div>
 </div>
