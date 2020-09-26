@@ -4,7 +4,7 @@
       <div class="col-xs-1"></div>
       <div class=" col-xs-10">
         <h3 class="profile-edit">プロフィール編集</h3>
-        <%= form_with model:@user do |f| %>
+        <%= form_with(model: @user, local: true) do |f| %>
           <p class="form">
             <%= f.label :ユーザー名 %>
             <%= f.text_field :name,class:"btn-block" %>

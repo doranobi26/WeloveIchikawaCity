@@ -7,7 +7,7 @@
     	</div>
     	<div class="row text-right">
   		    <%= form_tag(posts_path, :method => 'get') do %>
-            	<%= select_tag(:sort, options_for_select([["投稿の新しい順"],["投稿の古い順","old"],["評価の高い順","high_star"],["評価の低い順","low_star"],["いいねの多い順","high_ranking"],["いいねの少ない順","low_ranking"]]))%>
+            	<%= select_tag(:sort, options_for_select([["並び替え","select"],["投稿の新しい順"],["投稿の古い順","old"],["評価の高い順","high_star"],["評価の低い順","low_star"],["いいねの多い順","high_ranking"],["いいねの少ない順","low_ranking"]], "select")) %>
             	<%= submit_tag '検索' %>
             <% end %>
     	</div>
@@ -37,22 +37,22 @@
 			                	<% end %>
 			            	</td>
 			            	<td>
-			                	<%= post.area.name %>
+			               <%= post.area.name %>
 			            	</td>
 			            	<td>
-			  	            	<%= post.title %>
+			  	            <%= post.title %>
 			            	</td>
 			            	<td>
-			  	             	<%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+			  	            <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 			            	</td>
 			            	<td>
-			  	            	<%= post.favorites.count %>
+			  	            <%= post.favorites.count %>
 			            	</td>
 			            	<td>
-			  	            	<%= post.comments.count %>
+			  	            <%= post.comments.count %>
 			            	</td>
 			            	<td>
-			                	<%= link_to "詳細画面" ,post_path(post.id) %>
+			                <%= link_to "詳細画面" ,post_path(post.id) %>
 			            	</td>
 			        	</tr>
 		          	<% end %>
@@ -67,8 +67,3 @@
      	</div>
   	</div>
 </div>
-
-<%#= form_tag(posts_path, :method => 'get') do %>
-         <%#= select_tag(:sort, options_for_select([["評価の低い順","low_star"],["評価の高い順","high_star"],["いいねの少ない順","low_ranking"],["いいねの多い順","high_ranking"]]))%>
-          <%#= submit_tag '検索' %>
-     <%# end %>

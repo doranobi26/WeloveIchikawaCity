@@ -4,14 +4,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #@users = User.page(params[:page]).reverse_order
     @posts = @user.posts.page(params[:page]).reverse_order
   end
 
   def index
-    #@users = User.where("id != " + current_user).page(params[:page]).reverse_order
     @users = User.page(params[:page]).reverse_order
-
   end
 
   def profile
@@ -20,7 +17,6 @@ class UsersController < ApplicationController
 
   def favorite
     @favorites = Favorite.page(params[:page]).where(user_id: params[:id]).reverse_order
-    #@favorites = Favorite.where(user_id :user.id)
   end
 
 
@@ -35,7 +31,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      #flash[:notice] = 'プロフィール情報の更新に成功しました'
       redirect_to user_profile_path(@user.id),notice: "プロフィール情報の更新に成功しました"
     #binding.pry
     else
@@ -44,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def hide
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @user.update!(is_deleted: true)
     reset_session
     redirect_to root_path
