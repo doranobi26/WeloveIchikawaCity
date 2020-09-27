@@ -10,15 +10,19 @@ class UsersController < ApplicationController
   def index
     # 退会したユーザーとadminを除いたテーブルeach表記処理
     @users = User.page(params[:page]).where(is_deleted: false).where(admin: false).reverse_order
-
   end
 
   def profile
-    @user = User.find(params[:id])
+    @user = User.where(id: params[:id], is_deleted: false).first
+    if @user.present?
+    else
+      redirect_to root_path
+    end
   end
 
   def favorite
     @favorites = Favorite.page(params[:page]).where(user_id: params[:id]).reverse_order
+    #@favorites = User.page(params[:page]).where(is_deleted: false).where(admin: false).reverse_order
   end
 
 
@@ -42,6 +46,9 @@ class UsersController < ApplicationController
   def hide
     @user = User.find(params[:id])
     @user.update!(is_deleted: true)
+    Favorite.where(user_id: @user.id).destroy_all
+    Post.where(user_id: @user.id).destroy_all
+    Comment.where(user_id: @user.id).destroy_all
     reset_session
     redirect_to root_path
   end

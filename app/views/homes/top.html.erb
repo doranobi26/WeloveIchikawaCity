@@ -1,4 +1,7 @@
 <div class="home-top">
+  <% if flash[:notice] %>
+    <div class="alert alert-success text-center" role="alert"><%= notice %></div>
+  <% end %>
   <div class="container">
     <div class="row top-body">
       <div class="top-title">
