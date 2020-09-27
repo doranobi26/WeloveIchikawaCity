@@ -2,7 +2,6 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-
   def new
     @post = Post.new
     @post.images.new
@@ -12,13 +11,11 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.score = params[:review][:score]
-    #byebug
-
     if @post.save
       redirect_to post_path(@post.id),notice: "投稿に成功しました"
     else
-     @post.images.new
-     render "new"
+      @post.images.new
+      render "new"
     end
   end
 
@@ -68,8 +65,7 @@ class PostsController < ApplicationController
     @post.score = params[:review][:score]
     if @post.update(post_params)
       redirect_to post_path(@post.id),notice: "投稿の更新に成功しました"
-    else
-    render "edit"
+    else render "edit"
     end
   end
 

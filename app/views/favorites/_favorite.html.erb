@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
-    <% if @post.favorited_by?(current_user) %>
-        <%= link_to post_favorites_path(@post.id), method: :delete, remote: :true do %>
-            <span class="glyphicon glyphicon-heart"></span>
-            <%= @post.favorites.count %>件
-        <% end %>
-    <% else %>
-        <%= link_to post_favorites_path(@post.id), method: :post, remote: :true do %>
-            <span class="glyphicon glyphicon-heart-empty"></span>
-            <%= @post.favorites.count %>件
-        <% end %>
+  <% if @post.favorited_by?(current_user) %>
+    <%= link_to post_favorites_path(@post.id), method: :delete, remote: :true do %>
+      <span class="glyphicon glyphicon-heart"></span>
+      <%= @post.favorites.count %>件
     <% end %>
+  <% else %>
+    <%= link_to post_favorites_path(@post.id), method: :post, remote: :true do %>
+      <span class="glyphicon glyphicon-heart-empty"></span>
+      <%= @post.favorites.count %>件
+    <% end %>
+  <% end %>
 <% end %>

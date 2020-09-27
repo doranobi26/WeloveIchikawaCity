@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top s">
+<header class="navbar navbar-fixed-top header-color">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -30,9 +30,9 @@
               <i class="fas fa-search"></i>
             </a>
           </li>
-           <li class="menu">
+          <li class="menu">
              <%= link_to ' Logout', destroy_user_session_path, method: :delete,class:"glyphicon glyphicon-log-out logout"%>
-            </li>
+          </li>
             <!--ログアウト時 -->
         <% else %>
           <li class="menu">
@@ -59,7 +59,7 @@
   </div>
 </header>
 
-
+<!-- 検索ボタンをモーダル表示 -->
 <div class="modal fade" id="sampleModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -71,9 +71,9 @@
         <!-- ログイン時のみ検索ボタンをヘッダーに表示 -->
         <% if user_signed_in? %>
           <%= form_tag(search_path, :method => 'get') do %>
-           <%= select_tag(:option, options_for_select([["ユーザー", "1"],["投稿","2"]]))%>
-           <%= text_field_tag :search %>
-           <%= submit_tag '検索' %>
+            <%= select_tag(:option, options_for_select([["ユーザー", "1"],["投稿","2"]]))%>
+            <%= text_field_tag :search %>
+            <%= submit_tag '検索' %>
           <% end %>
         <% end %>
         <!-- ここまで -->
@@ -84,3 +84,4 @@
     </div>
   </div>
 </div>
+<!-- モーダルここまで -->

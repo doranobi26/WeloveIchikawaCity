@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    #@users = User.page(params[:page]).reverse_order
+    # 退会したユーザーとadminを除いたテーブルeach表記処理
     @users = User.page(params[:page]).where(is_deleted: false).where(admin: false).reverse_order
 
   end

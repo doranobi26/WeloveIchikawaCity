@@ -4,96 +4,108 @@
   <% end %>
   <div class="container">
     <h1 class="detail-title">投稿詳細</h1>
-      <div class="row center-block">
-        <span class="label label-primary">投稿者:<%= @user.name %></span>
-        <span class="label label-primary">地域名:<%= @area.name %></span>
-        <span class="label label-primary">投稿日時:<%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
-        <div class="evaluation">
-          <span>投稿評価：<%= @post.score %></span>
-          <span class="star"></span>
-        </div>
-          <div class="edit-destroy-button adjustment">
-            <% if user_signed_in? %>
-              <% if current_user == @user || current_user.admin == true %>
-                <span class="edit-button adjustment">
-                  <%= link_to "編集", edit_post_path(@post.id), class:"btn btn-success btn-sm" %>
-                </span>
-                <span class="destroy-button">
-                  <%= link_to "削除", post_path(@post.id),"data-confirm"=>"本当に削除しますか?", class:"btn btn-danger btn-sm", method: :delete %>
-                </span>
-              <% end %>
-            <% end %>
-        </div>
+    <div class="row center-block">
+      <span class="label label-primary">投稿者:<%= @user.name %></span>
+      <span class="label label-primary">地域名:<%= @area.name %></span>
+      <span class="label label-primary">投稿日時:<%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+      <div class="evaluation">
+        <span>投稿評価：<%= @post.score %></span>
+        <span class="star"></span>
       </div>
-
-      <div class="adjustment center-block">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <%= @post.title %>
-          </div>
-          <div class="panel-body">
-            <%= @post.caption %>
-          </div>
-        </div>
-      </div>
-      <div class="row text-center">
-        <% @images.each do |image| %>
-          <%= attachment_image_tag image, :image, format: 'jpeg', size:'310x310' %>
-        <% end %>
-      </div>
-      <div class="center-block">
-        <div class="adjustment">
-          <div class="panel panel-info">
-            <div class="panel-heading comment-index">
-              コメント一覧
-            </div>
-            <% unless @post.comments.empty? %>
-              <div class="panel-body">
-                <table class="table table-hover comment-table">
-                  <% @post.comments.each do |comment| %>
-                    <tr>
-                      <td>
-                        <%=link_to user_path(comment.user.id) do %>
-                          <%=attachment_image_tag comment.user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %>
-                          <%= comment.user.name %>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= comment.comment %>
-                      </td>
-                      <td>
-                        <% if user_signed_in? %>
-                          <% if current_user == comment.user || current_user.admin? %>
-                            <%=link_to "" , post_comment_path(comment.post, comment),method: :delete,"data-confirm"=>"本当に削除しますか?", class:"glyphicon glyphicon-trash" %>
-                          <% end %>
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                </table>
-              </div>
-            <% end %>
-          </div>
-        </div>
+      <div class="edit-destroy-button adjustment">
+        <!-- ログイン時 -->
         <% if user_signed_in? %>
+          <!-- current_userとadminのみ表記 -->
+          <% if current_user == @user || current_user.admin == true %>
+            <span class="edit-button adjustment">
+              <%= link_to "編集", edit_post_path(@post.id), class:"btn btn-success btn-sm" %>
+            </span>
+            <span class="destroy-button">
+              <%= link_to "削除", post_path(@post.id),"data-confirm"=>"本当に削除しますか?", class:"btn btn-danger btn-sm", method: :delete %>
+            </span>
+          <% end %>
+        <% end %>
+        <!-- ここまで -->
+      </div>
+    </div>
+    <div class="adjustment center-block">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <%= @post.title %>
+        </div>
+        <div class="panel-body">
+          <%= @post.caption %>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <% @images.each do |image| %>
+        <%= attachment_image_tag image, :image, format: 'jpeg', size:'310x310' %>
+      <% end %>
+    </div>
+    <div class="center-block">
+      <div class="adjustment">
+        <div class="panel panel-info">
+          <div class="panel-heading comment-index">
+            コメント一覧
+          </div>
+          <!-- コメント投稿がある場合のみ下記を表記 -->
+          <% unless @post.comments.empty? %>
+            <div class="panel-body">
+              <table class="table table-hover comment-table">
+                <% @post.comments.each do |comment| %>
+                  <tr>
+                    <td>
+                      <%=link_to user_path(comment.user.id) do %>
+                        <%=attachment_image_tag comment.user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %>
+                        <%= comment.user.name %>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= comment.comment %>
+                    </td>
+                    <td>
+                      <!-- ログイン時 -->
+                      <% if user_signed_in? %>
+                        <!-- current_userとadminのみ表記 -->
+                        <% if current_user == comment.user || current_user.admin? %>
+                          <%=link_to "" , post_comment_path(comment.post, comment),method: :delete,"data-confirm"=>"本当に削除しますか?", class:"glyphicon glyphicon-trash" %>
+                        <% end %>
+                      <% end %>
+                      <!-- ここまで -->
+                    </td>
+                  </tr>
+                <% end %>
+              </table>
+            </div>
+          <% end %>
+          <!-- ここまで -->
+        </div>
+      </div>
+      <!-- ログイン時 -->
+      <% if user_signed_in? %>
+        <%# if @user == curret_user %>
           <%=form_for [@post, @comment] do |f| %>
             <%=f.text_area :comment, class:"btn-block" %>
             <div class="adjustment">
               <%=f.submit "コメント投稿",class: "btn btn-primary" %>
             </div>
           <% end %>
-        <% end %>
-        <div id="show_favorite_<%= @post.id %>" class="favorite">
-          <%= render 'favorites/favorite', post: @post %>
-        </div>
+        <%# end %>
+      <% end %>
+      <!-- ここまで -->
+      <!-- いいねの非同期通信 -->
+      <div id="show_favorite_<%= @post.id %>" class="favorite">
+        <%= render 'favorites/favorite', post: @post %>
       </div>
-
-      <div class="row center-block">
-        <div id="map"></div>
-        <div class="googlemap_rink">もっと<%= @area.name %>について知りたい方は
-        <a href="https://www.google.co.jp/maps/place/<%= @area.postal_code %>">こちら</a>(市境・ルート検索等)をクリック
-        </div>
+      <!-- ここまで -->
+    </div>
+    <div class="row center-block">
+      <div id="map"></div>
+      <div class="googlemap_rink">もっと<%= @area.name %>について知りたい方は
+      <a href="https://www.google.co.jp/maps/place/<%= @area.postal_code %>">こちら</a>(地区境・ルート検索等)をクリック
       </div>
+    </div>
   </div>
 </div>
 

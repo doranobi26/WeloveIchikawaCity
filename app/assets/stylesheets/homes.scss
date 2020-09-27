@@ -61,21 +61,21 @@
 }
 
 .buttons{
-  padding-top :30px;
+  padding-top: 30px;
 }
 
 .new-registration-button{
-  padding-right :120px;
-  font-size :20px;
+  padding-right: 120px;
+  font-size: 20px;
 }
 
 .login-button{
-  padding-top :30px;
-  font-size :20px;
+  padding-top: 30px;
+  font-size: 20px;
 }
 
 .about-ajustment{
-  padding-bottom :60px
+  padding-bottom: 60px
 }
 
 .about-title{
@@ -87,29 +87,29 @@
 }
 
 .image1 {
-  background-image: image-url("test1.jpg");
+  background-image: image-url("image1.jpg");
 }
 .image2 {
-  background-image: image-url("test2.jpg");
+  background-image: image-url("image2.jpg");
 }
 .image3 {
-  background-image: image-url("test3.jpg");
+  background-image: image-url("image3.jpg");
 }
 .image4 {
-  background-image: image-url("test4.jpg");
+  background-image: image-url("image4.jpg");
 }
 .image5 {
-  background-image: image-url("test5.jpg");
+  background-image: image-url("image5.jpg");
 }
 
 @media screen and (max-width:425px) {
   .new-registration-button{
-  padding-right :20px;
-  font-size :20px;
+  padding-right: 20px;
+  font-size: 20px;
 }
 
 　.login-button{
-  padding-top :30px;
-  font-size :10px;
+  padding-top: 30px;
+  font-size: 10px;
 }
 }

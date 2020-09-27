@@ -1,7 +1,5 @@
 class Post < ApplicationRecord
 
-  #after_validation :geocode
-
 	validates :title, presence: true
 	validates :title, length: { maximum: 20 }
 	validates :caption, presence: true
@@ -20,21 +18,21 @@ class Post < ApplicationRecord
 	accepts_attachments_for :images, attachment: :image
 
 	def favorited_by?(user)
-	 favorites.where(user_id: user.id).exists?
+	  favorites.where(user_id: user.id).exists?
 	end
 
 	def Post.search(search, user_or_post)
     if user_or_post == "2"
     	if search == ""
-    	   Post.where(['title LIKE ?',"#{search}" ])
+    	  Post.where(['title LIKE ?',"#{search}" ])
     	else
-          Post.where(['title LIKE ?', "%#{search}%"])
-        end
+        Post.where(['title LIKE ?', "%#{search}%"])
       end
     end
+  end
 
-    private
-    def presence_images
-    	errors.add(:posts, "can't be blank") if images.size == 0
-    end
+  private
+  def presence_images
+    errors.add(:posts, "can't be blank") if images.size == 0
+  end
 end

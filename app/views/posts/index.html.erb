@@ -1,16 +1,16 @@
 <div class="post-index-body">
   <div class="container">
-    <div class="row">
-      <div class="text-center">
-        <h3><i class="far fa-newspaper icon"></i></h3>
-      </div>
+    <div class="row text-center">
+      <h3><i class="far fa-newspaper icon"></i></h3>
     </div>
+    <!-- セレクトボックス -->
     <div class="row text-right">
       <%= form_tag(posts_path, :method => 'get') do %>
         <%= select_tag(:sort, options_for_select([["並び替え","select"],["投稿の新しい順"],["投稿の古い順","old"],["評価の高い順","high_star"],["評価の低い順","low_star"],["いいねの多い順","high_ranking"],["いいねの少ない順","low_ranking"]], "select")) %>
         <%= submit_tag '検索' %>
       <% end %>
     </div>
+    <!-- ここまで -->
     <div class="row">
       <table class="table table-hover table-invrese">
         <thead>
@@ -58,10 +58,8 @@
         </tbody>
       </table>
     </div>
-    <div class="row">
-      <div class="text-center">
-        <%= paginate @posts %>
-      </div>
+    <div class="row text-center">
+      <%= paginate @posts %>
     </div>
   </div>
 </div>
