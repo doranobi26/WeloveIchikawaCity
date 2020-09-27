@@ -111,14 +111,14 @@
 
 <script>
   $('.star').raty({
-   size: 36, // 星のサイズ
-   score: "<%= @post.score %>",//数値の代入
-   starOff: "<%=asset_path('star-off.png')%>",// 星なし
-   starOn: "<%=asset_path('star-on.png')%>",//星有り
-   starHalf: "<%=asset_path('star-half.png')%>",// 星半分
-   scoreName: 'review[score]',
-   half: true,// 星の半分の入力を実行
-   readOnly: true, //星の評価を固定化
+    size: 36, // 星のサイズ
+    score: "<%= @post.score %>",//数値の代入
+    starOff: "<%=asset_path('star-off.png')%>",// 星なし
+    starOn: "<%=asset_path('star-on.png')%>",//星有り
+    starHalf: "<%=asset_path('star-half.png')%>",// 星半分
+    scoreName: 'review[score]',
+    half: true,// 星の半分の入力を実行
+    readOnly: true, //星の評価を固定化
  });
 
 </script>
@@ -133,19 +133,20 @@
 <script>
 let map
 
-function initMap(){
-  geocoder = new google.maps.Geocoder()
+function initMap() {
+  geocoder = new google.maps.Geocoder();
   var lat = <%= @cordinates[0] %>;
   var lng = <%= @cordinates[1] %>;
   var styles = [
     {
       stylers: []
-    },{
+    },
+    {
       featureType: "administrative.locality",
       elementType: "geometry.stroke",
       stylers: [
         { color: "#FF643D" },
-        { "weight": 4}
+        { "weight": 4 }
       ]
     }
   ];
