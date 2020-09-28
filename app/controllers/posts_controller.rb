@@ -33,9 +33,9 @@ class PostsController < ApplicationController
     elsif params[:sort] == "high_ranking"
       @posts = Post.page(params[:page]).left_outer_joins(:favorites).group("posts.id").order("count(favorites.id) DESC").page(params[:page])
     elsif params[:sort] == "old"
-      @posts = Post.page(params[:page]).order(creatrd_at: :asc)
+      @posts = Post.page(params[:page]).order(created_at: :asc)
     elsif params[:sort] == "new"
-      @posts = Post.page(params[:page]).order(creatrd_at: :desc)
+      @posts = Post.page(params[:page]).order(created_at: :desc)
     end
   end
 
