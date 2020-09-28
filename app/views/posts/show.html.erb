@@ -15,11 +15,14 @@
       <div class="edit-destroy-button adjustment">
         <!-- ログイン時 -->
         <% if user_signed_in? %>
-          <!-- current_userとadminのみ表記 -->
-          <% if current_user == @user || current_user.admin == true %>
+          <!-- current_userのみ表記 -->
+          <% if current_user == @user %>
             <span class="edit-button adjustment">
               <%= link_to "編集", edit_post_path(@post.id), class:"btn btn-success btn-sm" %>
             </span>
+          <% end %>
+          <!-- current_userとadminのみ表記 -->
+          <% if current_user == @user || current_user.admin == true %>
             <span class="destroy-button">
               <%= link_to "削除", post_path(@post.id),"data-confirm"=>"本当に削除しますか?", class:"btn btn-danger btn-sm", method: :delete %>
             </span>
@@ -56,7 +59,7 @@
                 <% @post.comments.each do |comment| %>
                   <tr>
                     <td>
-                      <%=link_to user_path(comment.user.id) do %>
+                      <%=link_to user_profile_path(comment.user.id) do %>
                         <%=attachment_image_tag comment.user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %>
                         <%= comment.user.name %>
                       <% end %>

@@ -3,63 +3,60 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .post-form{
-	background-color :#EEEEEE;
-	min-height: calc(100vh - 50px);
-	padding-buttom: 30px;
+  background-color :#EEEEEE;
+  min-height: calc(100vh - 50px);
+  padding-buttom: 30px;
 }
 
-
-
 .post-button{
-	padding-top: 40px;
-	padding-buttom: 60px;
+  padding-top: 40px;
+  padding-buttom: 60px;
 }
 
 .submit-button{
-	padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .new_post{
-	height: 75px;
+  height: 75px;
 }
 
-
 .select-controll{
-	border: 1px solid #ccc;
-	border-radius: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .form-controll{
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-shadow: 1px 1px rgba(0,0,0,0.075);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 1px 1px rgba(0,0,0,0.075);
 }
 
 .post-index-body{
-	background-color: #EEEEEE;
-	min-height: calc(100vh - 50px);
+  background-color: #EEEEEE;
+  min-height: calc(100vh - 50px);
 }
 
 .post-show-body{
-	background-color: #EEEEEE;
-	min-height: calc(100vh - 50px);
-	padding-top: 10px;
-	padding-bottom: 20px;
+  background-color: #EEEEEE;
+  min-height: calc(100vh - 50px);
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .favorite{
-	padding-top: 10px;
-	padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .googlemap_rink{
-	padding-top: 10px;
+  padding-top: 10px;
 }
 
 .glyphicon-trash{
-	color: red;
+  color: red;
 }
 
 .comment-index{
-	text-align: center;
+  text-align: center;
 }

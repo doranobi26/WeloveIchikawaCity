@@ -26,123 +26,127 @@
 $header-height: 50px;
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .main {
-	min-height: calc(100vh - #{$header-height});
+  min-height: calc(100vh - #{$header-height});
 }
 
 .body-color{
-	background-color :#EEEEEE;
-	min-height: calc(100vh - 50px);
+  background-color :#EEEEEE;
+  min-height: calc(100vh - 50px);
 }
 
 .header-color{
-background-color: #C0C0C0;
+  background-color: #ffcccc;
+}
+
+.size{
+  font-size: 50px;
 }
 
 .header-test{
-	padding-top: 40px;
+  padding-top: 40px;
 }
 
 .icon{
-	font-size: 50px;
+  font-size: 50px;
 }
 
 .home-top{
   padding-top: 10px;
 }
 
-
-
 .footer-logo {
   width: 100%;
   height: 50px;
   text-align: center;
   line-height: 50px;
-  background-color: pink;
+  background-color: #ffcccc;
 }
 
-
-
 #footer-area{
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 #application-name{
-	color: #FFFFFF;
-	font-size: 20px;
-	padding-top: 10px;
+  color: #FFFFFF;
+  font-size: 20px;
+  padding-top: 10px;
 }
 
 .header-space{
-	padding-left: 10px;
-	padding-top: 10px
+  padding-left: 10px;
+  padding-top: 10px
 }
 
 .menu{
-	padding-right: 15px;
+  padding-right: 15px;
 }
 
 .login-form{
-    background-color: #EEEEEE;
-	min-height: calc(100vh - 50px);
+  background-color: #EEEEEE;
+  min-height: calc(100vh - 50px);
 }
 
 .forget-form{
-    background-color: #EEEEEE;
-	min-height: calc(100vh - 50px);
+  background-color: #EEEEEE;
+  min-height: calc(100vh - 50px);
 }
 
-
-
 .new-form{
-	min-height: calc(100vh - 50px);
-	padding-bottom: 30px;
+  min-height: calc(100vh - 50px);
+  padding-bottom: 30px;
 }
 
 .entry-form{
-	padding-buttom :25px;
+  padding-buttom :25px;
 }
 
 .actions{
-	padding-top: 10px;
-	padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .btn-block{
-	border :1px solid #ccc;
-	border-radius: 4px;
-	box-shadow: 1px 1px rgba(0,0,0,0.075);
+  border :1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 1px 1px rgba(0,0,0,0.075);
 }
 
 .header-color{
-	background-color: pink;
+  background-color: #ffcccc;
 }
 
 .text-center{
-	text-align: center;
+  text-align: center;
 }
 
 .adjustment{
-	padding-top: 10px;
+  padding-top: 10px;
 }
 
 .glyphicon-heart{
-	color: red;
+  color: #FF0000;
 }
 
 #error_explanation{
-  color: red;
+  color: #FF0000;
 }
 
 /* custom bootstrap */
 .navbar-toggle {
   .icon-bar {
-	background: #fff;
+  background: #fff;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .size{
+  font-size: 25px;
   }
 }
 

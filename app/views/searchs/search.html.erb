@@ -4,7 +4,7 @@
       <div class="col-xs-1"></div>
       <div class="col-xs-10">
         <% if @user_or_post == "2" %>
-          <h3>投稿検索(検索ワード "<%= @search %>")</h3>
+          <h3 class="text-center">投稿検索(検索ワード "<%= @search %>")</h3>
             <table class="table table-hover table-invrese">
               <thead>
                 <tr>
@@ -27,7 +27,9 @@
                       <%= post.area.name %>
                     </td>
                     <td>
-                      <%= post.title %>
+                      <%= link_to post_path(post.id) do %>
+                        <%= post.title %>
+                      <% end %>
                     </td>
                     <td>
                       <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S")  %>
@@ -37,7 +39,7 @@
               </tbody>
             </table>
         <% else @user_or_post == "1" %>
-          <h3>ユーザー検索(検索ワード "<%=@search %>")</h3>
+          <h3 class="text-center">ユーザー検索(検索ワード "<%=@search %>")</h3>
             <table class="table table-hover table-invrese">
               <thead>
                 <tr>
@@ -68,8 +70,6 @@
                 <% end %>
               </tbody>
             </table>
-        <%# else %>
-          <!-- <h3>検索結果はヒットしませんでした</h3> -->
         <% end %>
       </div>
       <div class="col-xs-1"></div>
